@@ -57,6 +57,8 @@ public final class Auth {
         return Utils.Js.toJsonNode(this);
     }
 
+    public String getPrivateKey() { return "FAKE_PRIVATE_KEY";}
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

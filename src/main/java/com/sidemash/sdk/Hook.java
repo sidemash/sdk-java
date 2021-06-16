@@ -22,9 +22,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.databind.JsonNode;
-import java.util.Objects;
-import java.util.Optional;
-import java.util.Set;
+
+import java.util.*;
+import java.util.function.BooleanSupplier;
+import java.util.function.Consumer;
+import java.util.function.Function;
 
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, property = "_type")
 @JsonSubTypes({
@@ -67,6 +69,10 @@ public abstract class Hook {
 
         public JsonNode toJsonNode() {
             return Utils.Js.toJsonNode(this);
+        }
+
+        public static final class Method {
+            public static final HttpMethod GET = new HttpMethod("GET");
         }
 
         @Override
